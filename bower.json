@@ -1,6 +1,9 @@
 {
   "name": "bootstrap-tab-modal",
-  "main": "bootstrap-tab-modal.js",
+  "main": [
+    "bootstrap-tab-modal.js",
+    "bootstrap-tab-modal.css"
+  ],
   "homepage": "https://github.com/seanhuber/bootstrap-tab-modal",
   "authors": [
     "Sean Huber <seanhuber@seanhuber.com>"

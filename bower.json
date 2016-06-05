@@ -1,0 +1,23 @@
+{
+  "name": "bootstrap-tab-modal",
+  "main": "bootstrap-tab-modal.js",
+  "homepage": "https://github.com/seanhuber/bootstrap-tab-modal",
+  "authors": [
+    "Sean Huber <seanhuber@seanhuber.com>"
+  ],
+  "description": "A jQuery widget for Bootstrap modals that have tabs and built-in ajax handling.",
+  "keywords": [
+    "jquery",
+    "bootstrap",
+    "modal",
+    "jquery-widget"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

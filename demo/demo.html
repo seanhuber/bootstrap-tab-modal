@@ -22,9 +22,9 @@
 
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js' integrity='sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS' crossorigin='anonymous'></script>
 
-    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
-    <script src='https://raw.githubusercontent.com/aino/throbber.js/master/throbber.js' type='text/javascript' charset='utf-8'></script>
+    <script src='https://rawgit.com/aino/throbber.js/master/throbber.js' type='text/javascript' charset='utf-8'></script>
 
     <script src='../bootstrap-tab-modal.js' type='text/javascript' charset='utf-8'></script>
     <link rel='stylesheet' href='../bootstrap-tab-modal.css' type='text/css' media='screen' />
@@ -69,7 +69,9 @@
           $('#demo').tabModal('setTabContent', 'third', 'this is the 3rd tab!');
         }
       });
-      $('#demo').tabModal('show');
+      $('.btn-primary').click( function() {
+        $('#demo').tabModal('show');
+      });
     </script>
   </body>
 </html>

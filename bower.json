@@ -4,6 +4,9 @@
     "bootstrap-tab-modal.js",
     "bootstrap-tab-modal.css"
   ],
+  "dependencies": {
+    "throbber.js": "0.0.2"
+  },
   "homepage": "https://github.com/seanhuber/bootstrap-tab-modal",
   "authors": [
     "Sean Huber <seanhuber@seanhuber.com>"

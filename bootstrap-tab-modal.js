@@ -1,9 +1,9 @@
 /*
   jQuery widget for a tabbed Bootstrap modal (https://github.com/seanhuber/bootstrap-tab-modal)
-  Version 0.0.1
+  Version 1.0.0
 */
 (function($) {
-  $.widget( 'sr.tabModal' , {
+  $.widget( 'sh.tabModal' , {
     options: {
       dismissable: true,
       default_tab_content: 'use-throbber',

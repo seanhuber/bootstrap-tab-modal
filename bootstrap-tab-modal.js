@@ -1,6 +1,6 @@
 /*
   jQuery widget for a tabbed Bootstrap modal (https://github.com/seanhuber/bootstrap-tab-modal)
-  Version 1.0.0
+  Version 1.1.0
 */
 (function($) {
   $.widget( 'sh.tabModal' , {
@@ -106,6 +106,7 @@
       $initial_tabpanel = $modal.find('.tab-pane.active');
       if ( $initial_tabpanel.text() == 'use-throbber' ) {
         this._addThrobber( $initial_tabpanel );
+        this.options.tabs[$initial_tabpanel.prop('id')].showTab();
       }
 
       $modal.find("a[data-toggle='tab']").on('show.bs.tab', function (e) {
@@ -113,6 +114,7 @@
         var $tabpanel = $($(e.target).data('target'));
         if ( $tabpanel.text() == 'use-throbber' ) {
           that._addThrobber( $tabpanel );
+          that.options.tabs[$tabpanel.prop('id')].showTab();
         }
       });
 
@@ -157,10 +159,12 @@
       $tabpanel.addClass('throbbing')
       $tabpanel.html('Loading...');
       var throb = Throbber({color: 'black'});
-      var tab_id = $tabpanel.prop('id');
-      throb.appendTo( document.getElementById(tab_id) );
+
+      // $tabpanel[0] because throbber.js needs to attach to nativ DOM element
+      // https://learn.jquery.com/using-jquery-core/faq/how-do-i-pull-a-native-dom-element-from-a-jquery-object/
+      throb.appendTo( $tabpanel[0] );
+
       throb.start();
-      this._trigger( 'load_' + tab_id );
     },
 
     _buildModal: function() {

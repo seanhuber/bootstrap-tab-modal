@@ -46,32 +46,36 @@
     <script>
       $('#demo').tabModal({
         header: 'Tabbed Modal',
-
         tabs: {
-          info: {
+          first: {
             label: 'Default Tab',
-            active: true
+            active: true,
+            showTab: function() {
+              $('#demo').tabModal('setTabContent', 'first', '<h3>Default</h3>');
+            }
+          }, second: {
+            label: 'Second Tab',
+            showTab: function() {
+              // this tab does nothing
+            }
+          }, third: {
+            label: 'Third Tab',
+            showTab: function() {
+              $('#demo').tabModal('setTabContent', 'third', '<h3>Third!</h3>');
+            }
+          }, fourth: {
+            label: 'Fourth Tab',
+            showTab: function() {
+              $('#demo').tabModal('setTabContent', 'fourth', '<h3>Fourth!</h3>');
+            }
           },
-          second: {
-            label: 'Second Tab'
-          },
-          third: {
-            label: 'Third Tab'
-          },
-          fourth: {
-            label: 'Fourth Tab'
-          },
-        },
-        load_info: function() {
-          $('#demo').tabModal('setTabContent', 'info', '<h3>test</h3>');
-        },
-        load_third: function() {
-          $('#demo').tabModal('setTabContent', 'third', 'this is the 3rd tab!');
         }
       });
       $('.btn-primary').click( function() {
         $('#demo').tabModal('show');
       });
+      // TODO: remove
+      $('.btn-primary').click();
     </script>
   </body>
 </html>

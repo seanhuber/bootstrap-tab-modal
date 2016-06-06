@@ -1,5 +1,5 @@
 body > .tab-modal .modal-body {
-  padding: 10px 0;
+  padding: 10px 0px 0px;
   background-color: #F9F9F9;
   border-radius: 5px;
 }
@@ -26,6 +26,10 @@ body > .tab-modal .modal-body > ul.nav-tabs > li > a {
   border-bottom-color: transparent;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.59);
+}
+
+body > .tab-modal .modal-body > ul.nav-tabs > li:not(.active) > a:hover {
+  border-bottom-color: #ddd;
 }
 
 body > .tab-modal .modal-body > ul.nav-tabs > li.active > a {
@@ -58,8 +62,10 @@ body > .tab-modal .modal-body .alert .popover pre {
 }
 
 body > .tab-modal .modal-body > .tab-content {
-  padding: 10px 10px 0;
+  padding: 10px;
   background-color: #FFF;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 body > .tab-modal .modal-body > .tab-content .tab-pane.throbbing {

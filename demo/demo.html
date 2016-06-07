@@ -35,6 +35,23 @@
         text-align: center;
         padding-top: 100px;
       }
+
+      body > .tab-modal .tab-modal-header {
+        font-size: 30px;
+        font-weight: lighter;
+      }
+
+      .default {
+        min-height: 300px;
+        padding-top: 100px;
+        font-size: 20px;
+      }
+
+      .second {
+        min-height: 400px;
+        padding-top: 100px;
+        color: red;
+      }
     </style>
   </head>
   <body>
@@ -51,22 +68,28 @@
             label: 'Default Tab',
             active: true,
             showTab: function() {
-              $('#demo').tabModal('setTabContent', 'first', '<h3>Default</h3>');
+              $('#demo').tabModal('setTabContent', 'first', "<div class='default'>This is the content of the default tab. Click on other tabs to view their contents.</div>");
             }
           }, second: {
             label: 'Second Tab',
             showTab: function() {
-              // this tab does nothing
+              setTimeout( function() {
+                $('#demo').tabModal('setTabContent', 'second', "<div class='second'>This is the content of the second tab. Click on other tabs to view their contents.</div>");
+              }, 500); // just a delay for demonstrating the built-in throbber
             }
           }, third: {
             label: 'Third Tab',
             showTab: function() {
-              $('#demo').tabModal('setTabContent', 'third', '<h3>Third!</h3>');
+              setTimeout( function() {
+                $('#demo').tabModal('setTabContent', 'third', '<h3>Third!</h3>');
+              }, 500); // just a delay for demonstrating the built-in throbber
             }
           }, fourth: {
             label: 'Fourth Tab',
             showTab: function() {
-              $('#demo').tabModal('setTabContent', 'fourth', '<h3>Fourth!</h3>');
+              setTimeout( function() {
+                $('#demo').tabModal('setTabContent', 'fourth', '<h3>Fourth!</h3>');
+              }, 500); // just a delay for demonstrating the built-in throbber
             }
           },
         }

@@ -73,3 +73,23 @@ QUnit.test( "click third tab", function( assert ) {
   });
   $anchor.tabModal('show');
 });
+
+QUnit.test( "add tabs", function( assert ) {
+  expect(1);
+  var done = assert.async();
+  var $anchor = $("<div id='test4'></div>");
+  $anchor.appendTo('body');
+  $anchor.tabModal(_modal_opts).on( 'sh.tabModal.shown', function() {
+    $anchor.tabModal('addTabs', {
+      fifth: {
+        label: 'Added Dynamically',
+        content: "blah blah"
+      }
+    });
+    $anchor.tabModal('clickTab', 'fifth');
+    assert.ok( tabIsActive($anchor, 'fifth'), 'fifth tab is active' );
+    $anchor.tabModal('close');
+    done();
+  });
+  $anchor.tabModal('show');
+});

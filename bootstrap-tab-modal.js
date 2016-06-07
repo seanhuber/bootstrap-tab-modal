@@ -129,6 +129,7 @@
       // show the modal
       $modal.modal( modal_opts );
       this._data.shown = true;
+      this.element.trigger('sh.tabModal.shown');
     },
 
     showAlert: function( opts ) {

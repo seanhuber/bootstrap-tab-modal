@@ -22,7 +22,7 @@ Installation
 With Bower:
 
 ```
-bower install jquery-modal
+bower install bootstrap-tab-modal
 ```
 
 Or grab the scripts and styles and manually insert them in `<head>`:

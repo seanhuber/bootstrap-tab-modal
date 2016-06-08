@@ -16,10 +16,6 @@ jQuery version 1.9.0 or newer.
 
 throbber.js: https://github.com/aino/throbber.js
 
-"bootstrap": ">= 3.1.0 < 4.0.0",
-"jquery": ">= 1.9.0",
-"throbber.js": "0.0.2"
-
 Installation
 -----------------
 

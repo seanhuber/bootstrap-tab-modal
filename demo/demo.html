@@ -88,7 +88,9 @@
             label: 'Fourth Tab',
             showTab: function() {
               setTimeout( function() {
-                $('#demo').tabModal('setTabContent', 'fourth', '<h3>Fourth!</h3>');
+                $demo = $('#demo');
+                $demo.tabModal('setTabContent', 'fourth', '<h3>Fourth!</h3>');
+                $demo.tabModal('markForReload', 'fourth');
               }, 500); // just a delay for demonstrating the built-in throbber
             }
           },

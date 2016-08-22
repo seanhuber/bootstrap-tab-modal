@@ -81,6 +81,10 @@
       $( "a[data-target='#"+tab_id+"']" ).addClass('hidden');
     },
 
+    markForReload: function(tab_id) {
+      $('#' + tab_id).addClass('load-content');
+    },
+
     setDefaultTab: function( tab_id ) {
       $.each( this.options.tabs, function(k, v) { delete v.active; });
       this.options.tabs[tab_id].active = true;
@@ -104,17 +108,19 @@
       var $modal = this._buildModal();
 
       $initial_tabpanel = $modal.find('.tab-pane.active');
-      if ( $initial_tabpanel.text() == 'use-throbber' ) {
+      if ($initial_tabpanel.hasClass('load-content')) {
         this._addThrobber( $initial_tabpanel );
         this.options.tabs[$initial_tabpanel.prop('id')].showTab();
+        $initial_tabpanel.removeClass('load-content');
       }
 
       $modal.find("a[data-toggle='tab']").on('show.bs.tab', function (e) {
         that.hideAlert();
         var $tabpanel = $($(e.target).data('target'));
-        if ( $tabpanel.text() == 'use-throbber' ) {
+        if ($tabpanel.hasClass('load-content')) {
           that._addThrobber( $tabpanel );
           that.options.tabs[$tabpanel.prop('id')].showTab();
+          $tabpanel.removeClass('load-content');
         }
       });
 
@@ -201,7 +207,7 @@
 
         t_html.t_links += "<li role='presentation' class='"+tab_class+"'><a data-target='#"+k+"' aria-controls='"+k+"' role='tab' data-toggle='tab'>"+v.label+"</a></li>";
         var tab_content = v.hasOwnProperty( 'content' ) ? v.content : that.options.default_tab_content;
-        t_html.t_panels += "<div role='tabpanel' class='tab-pane "+tab_class+"' id='"+k+"'>"+tab_content+"</div>";
+        t_html.t_panels += "<div role='tabpanel' class='load-content tab-pane "+tab_class+"' id='"+k+"'>"+tab_content+"</div>";
       });
       return t_html;
     },

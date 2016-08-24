@@ -99,6 +99,10 @@ $('#tab_modal_anchor').tabModal({
 
 // show() displays the tabbed modal. It often makes sense to put this in a click handler.
 $('#tab_modal_anchor').tabModal('show');
+
+// markForReload(tab_id) - Marks a tab to be reloaded. This means the next time the tab is selected, it will load
+//                         content even if the tab has been previously loaded. 
+$('#tab_modal_anchor').tabModal('markForReload', 'fourth');
 </script>
 ```
 

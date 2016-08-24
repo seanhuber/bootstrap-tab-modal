@@ -93,3 +93,18 @@ QUnit.test( "add tabs", function( assert ) {
   });
   $anchor.tabModal('show');
 });
+
+QUnit.test("reload tab", function(assert) {
+  expect(1);
+  var done = assert.async();
+  var $anchor = $("<div id='test5'></div>");
+  $anchor.appendTo('body');
+  $anchor.tabModal(_modal_opts).on( 'sh.tabModal.shown', function() {
+    tabLink($anchor, 'fourth').trigger('click');
+    $anchor.tabModal('markForReload', 'fourth');
+    assert.ok($('#fourth').hasClass('load-content'));
+    $anchor.tabModal('close');
+    done();
+  });
+  $anchor.tabModal('show');
+});

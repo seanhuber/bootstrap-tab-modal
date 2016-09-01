@@ -22,7 +22,9 @@ var _modal_opts = {
       showTab: function() {
         $('#demo').tabModal('setTabContent', 'fourth', '<h3>Fourth!</h3>');
       }
-    },
+    }, noShowTabFn: {
+      label: 'No Show Tab'
+    }
   }
 };
 
@@ -103,6 +105,21 @@ QUnit.test("reload tab", function(assert) {
     tabLink($anchor, 'fourth').trigger('click');
     $anchor.tabModal('markForReload', 'fourth');
     assert.ok($('#fourth').hasClass('load-content'));
+    $anchor.tabModal('close');
+    done();
+  });
+  $anchor.tabModal('show');
+});
+
+QUnit.test("no showTab function", function(assert) {
+  expect(1);
+  var done = assert.async();
+  var $anchor = $("<div id='test6'></div>");
+  $anchor.appendTo('body');
+  $anchor.tabModal(_modal_opts).on( 'sh.tabModal.shown', function() {
+    $anchor.tabModal('setTabContent', 'noShowTabFn', "<p class='fifth-test-content'>some stuff</p>");
+    $anchor.tabModal('clickTab', 'noShowTabFn');
+    assert.ok(tabIsActive($anchor, 'noShowTabFn'));
     $anchor.tabModal('close');
     done();
   });

@@ -98,6 +98,7 @@
       var $tabpanel = this._getModal().find('#' + tab_id);
       $tabpanel.html( tab_html );
       $tabpanel.removeClass('throbbing');
+      $tabpanel.removeClass('load-content');
     },
 
     show: function() {
@@ -110,7 +111,10 @@
       $initial_tabpanel = $modal.find('.tab-pane.active');
       if ($initial_tabpanel.hasClass('load-content')) {
         this._addThrobber( $initial_tabpanel );
-        this.options.tabs[$initial_tabpanel.prop('id')].showTab();
+        var tab = this.options.tabs[$initial_tabpanel.prop('id')];
+        if (tab.showTab) {
+          tab.showTab();
+        }
         $initial_tabpanel.removeClass('load-content');
       }
 
@@ -119,7 +123,10 @@
         var $tabpanel = $($(e.target).data('target'));
         if ($tabpanel.hasClass('load-content')) {
           that._addThrobber( $tabpanel );
-          that.options.tabs[$tabpanel.prop('id')].showTab();
+          var tab = that.options.tabs[$tabpanel.prop('id')]
+          if (tab.showTab) {
+            tab.showTab();
+          }
           $tabpanel.removeClass('load-content');
         }
       });
